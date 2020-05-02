@@ -8,7 +8,7 @@ import {RichText} from 'prismic-reactjs'
 import Button from 'components/_ui/Button'
 import Layout from 'components/Layout'
 
-const ProjectHeroContainer = styled('div')`
+const FeatureHeroContainer = styled('div')`
   background: ${colors.grey200};
   display: flex;
   justify-content: center;
@@ -23,13 +23,13 @@ const ProjectHeroContainer = styled('div')`
   }
 `
 
-const ProjectTitle = styled('div')`
+const FeatureTitle = styled('div')`
   max-width: 550px;
   margin: 0 auto;
   text-align: center;
 `
 
-const ProjectBody = styled('div')`
+const FeatureBody = styled('div')`
   max-width: 550px;
   margin: 0 auto;
 
@@ -49,11 +49,11 @@ const FeaturesLink = styled(Link)`
   text-align: center;
 `
 
-const Project = ({project, meta}) => {
+const Feature = ({feature, meta}) => {
   return (
     <>
       <Helmet
-        title={`${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`}
+        title={`${feature.feature_title[0].text} | ConfigScript`}
         titleTemplate={`%s | ${meta.title}`}
         meta={[
           {
@@ -62,7 +62,7 @@ const Project = ({project, meta}) => {
           },
           {
             property: `og:title`,
-            content: `${project.project_title[0].text} | Prist, Gatsby & Prismic Starter`,
+            content: `${feature.feature_title[0].text} | ConfigScript`,
           },
           {
             property: `og:description`,
@@ -91,46 +91,46 @@ const Project = ({project, meta}) => {
         ].concat(meta)}
       />
       <Layout>
-        <ProjectTitle>{RichText.render(project.project_title)}</ProjectTitle>
-        {project.project_hero_image && (
-          <ProjectHeroContainer>
-            <img src={project.project_hero_image.url} alt="bees" />
-          </ProjectHeroContainer>
+        <FeatureTitle>{RichText.render(feature.feature_title)}</FeatureTitle>
+        {feature.feature_hero_image && (
+          <FeatureHeroContainer>
+            <img src={feature.feature_hero_image.url} alt="bees" />
+          </FeatureHeroContainer>
         )}
-        <ProjectBody>
-          {RichText.render(project.project_description)}
+        <FeatureBody>
+          {RichText.render(feature.feature_description)}
           <FeaturesLink to={'/features'}>
             <Button className="Button--secondary">See other features</Button>
           </FeaturesLink>
-        </ProjectBody>
+        </FeatureBody>
       </Layout>
     </>
   )
 }
 
 export default ({data}) => {
-  const projectContent = data.prismic.allProjects.edges[0].node
+  const featureContent = data.prismic.allFeatures.edges[0].node
   const meta = data.site.siteMetadata
-  return <Project project={projectContent} meta={meta} />
+  return <Feature feature={featureContent} meta={meta} />
 }
 
-Project.propTypes = {
-  project: PropTypes.object.isRequired,
+Feature.propTypes = {
+  feature: PropTypes.object.isRequired,
 }
 
 export const query = graphql`
-  query ProjectQuery($uid: String) {
+  query FeatureQuery($uid: String) {
     prismic {
-      allProjects(uid: $uid) {
+      allFeatures(uid: $uid) {
         edges {
           node {
-            project_title
-            project_preview_description
-            project_preview_thumbnail
-            project_category
-            project_post_date
-            project_hero_image
-            project_description
+            feature_title
+            feature_preview_description
+            feature_preview_thumbnail
+            feature_category
+            feature_post_date
+            feature_hero_image
+            feature_description
             _meta {
               uid
             }

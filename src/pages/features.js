@@ -4,17 +4,17 @@ import {Helmet} from 'react-helmet'
 import {graphql} from 'gatsby'
 import styled from '@emotion/styled'
 import Layout from 'components/Layout'
-import ProjectCard from 'components/ProjectCard'
+import FeatureCard from 'components/FeatureCard'
 
 const FeaturesTitle = styled('h1')`
   margin-bottom: 1em;
 `
 
-const Features = ({projects, meta}) => (
+const Features = ({features, meta}) => (
   <>
     <Helmet
-      title={`Features | Prist, Gatsby & Prismic Starter`}
-      titleTemplate={`%s | Features | Prist, Gatsby & Prismic Starter`}
+      title={`Features | ConfigScript`}
+      titleTemplate={`%s | Features | ConfigScript`}
       meta={[
         {
           name: `description`,
@@ -22,7 +22,7 @@ const Features = ({projects, meta}) => (
         },
         {
           property: `og:title`,
-          content: `Features | Prist, Gatsby & Prismic Starter`,
+          content: `Features | ConfigScript`,
         },
         {
           property: `og:description`,
@@ -53,14 +53,14 @@ const Features = ({projects, meta}) => (
     <Layout>
       <FeaturesTitle>Features</FeaturesTitle>
       <>
-        {projects.map((project, i) => (
-          <ProjectCard
+        {features.map((feature, i) => (
+          <FeatureCard
             key={i}
-            category={project.node.project_category}
-            title={project.node.project_title}
-            description={project.node.project_preview_description}
-            thumbnail={project.node.project_preview_thumbnail}
-            uid={project.node._meta.uid}
+            category={feature.node.feature_category}
+            title={feature.node.feature_title}
+            description={feature.node.feature_preview_description}
+            thumbnail={feature.node.feature_preview_thumbnail}
+            uid={feature.node._meta.uid}
           />
         ))}
       </>
@@ -69,28 +69,28 @@ const Features = ({projects, meta}) => (
 )
 
 export default ({data}) => {
-  const projects = data.prismic.allProjects.edges
+  const features = data.prismic.allFeatures.edges
   const meta = data.site.siteMetadata
-  if (!projects) return null
+  if (!features) return null
 
-  return <Features projects={projects} meta={meta} />
+  return <Features features={features} meta={meta} />
 }
 
 Features.propTypes = {
-  projects: PropTypes.array.isRequired,
+  features: PropTypes.array.isRequired,
 }
 
 export const query = graphql`
   {
     prismic {
-      allProjects {
+      allFeatures {
         edges {
           node {
-            project_title
-            project_preview_description
-            project_preview_thumbnail
-            project_category
-            project_post_date
+            feature_title
+            feature_preview_description
+            feature_preview_thumbnail
+            feature_category
+            feature_post_date
             _meta {
               uid
             }

@@ -6,7 +6,7 @@ import dimensions from 'styles/dimensions'
 import colors from 'styles/colors'
 import PropTypes from 'prop-types'
 
-const ProjectCardContainer = styled(Link)`
+const FeatureCardContainer = styled(Link)`
   display: grid;
   grid-template-columns: 4fr 7fr;
   box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.06);
@@ -31,7 +31,7 @@ const ProjectCardContainer = styled(Link)`
     box-shadow: 0px 9px 24px rgba(0, 0, 0, 0.1);
     transition: all 150ms ease-in-out;
 
-    .ProjectCardAction {
+    .FeatureCardAction {
       color: ${colors.blue500};
       transition: all 150ms ease-in-out;
 
@@ -42,19 +42,19 @@ const ProjectCardContainer = styled(Link)`
       }
     }
 
-    .ProjectCardContent::before {
+    .FeatureCardContent::before {
       opacity: 0.02;
       transition: all 150ms ease-in-out;
     }
 
-    .ProjectCardImageContainer::before {
+    .FeatureCardImageContainer::before {
       opacity: 0.2;
       transition: all 150ms ease-in-out;
     }
   }
 `
 
-const ProjectCardContent = styled('div')`
+const FeatureCardContent = styled('div')`
   background: white;
   padding: 4em 3em 2.25em 3em;
   position: relative;
@@ -81,17 +81,17 @@ const ProjectCardContent = styled('div')`
   }
 `
 
-const ProjectCardCategory = styled('h6')`
+const FeatureCardCategory = styled('h6')`
   font-weight: 600;
   color: ${colors.grey600};
 `
 
-const ProjectCardTitle = styled('h3')`
+const FeatureCardTitle = styled('h3')`
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 `
 
-const ProjectCardBlurb = styled('div')`
+const FeatureCardBlurb = styled('div')`
   margin-bottom: 0.5em;
   margin-top: 0.5em;
   margin-bottom: 5em;
@@ -101,7 +101,7 @@ const ProjectCardBlurb = styled('div')`
   }
 `
 
-const ProjectCardAction = styled('div')`
+const FeatureCardAction = styled('div')`
   font-weight: 600;
   text-decoration: none;
   color: currentColor;
@@ -115,7 +115,7 @@ const ProjectCardAction = styled('div')`
   }
 `
 
-const ProjectCardImageContainer = styled('div')`
+const FeatureCardImageContainer = styled('div')`
   background: ${colors.grey200};
   display: flex;
   justify-content: center;
@@ -157,25 +157,25 @@ const ProjectCardImageContainer = styled('div')`
   }
 `
 
-const ProjectCard = ({category, title, description, thumbnail, uid}) => (
-  <ProjectCardContainer to={`/features/${uid}`}>
-    <ProjectCardContent className="ProjectCardContent">
-      <ProjectCardCategory>{category[0].text}</ProjectCardCategory>
-      <ProjectCardTitle>{title[0].text}</ProjectCardTitle>
-      <ProjectCardBlurb>{RichText.render(description)}</ProjectCardBlurb>
-      <ProjectCardAction className="ProjectCardAction">
+const FeatureCard = ({category, title, description, thumbnail, uid}) => (
+  <FeatureCardContainer to={`/features/${uid}`}>
+    <FeatureCardContent className="FeatureCardContent">
+      <FeatureCardCategory>{category[0].text}</FeatureCardCategory>
+      <FeatureCardTitle>{title[0].text}</FeatureCardTitle>
+      <FeatureCardBlurb>{RichText.render(description)}</FeatureCardBlurb>
+      <FeatureCardAction className="FeatureCardAction">
         Details <span>&#8594;</span>
-      </ProjectCardAction>
-    </ProjectCardContent>
-    <ProjectCardImageContainer className="ProjectCardImageContainer">
+      </FeatureCardAction>
+    </FeatureCardContent>
+    <FeatureCardImageContainer className="FeatureCardImageContainer">
       <img src={thumbnail.url} alt={title[0].text} />
-    </ProjectCardImageContainer>
-  </ProjectCardContainer>
+    </FeatureCardImageContainer>
+  </FeatureCardContainer>
 )
 
-export default ProjectCard
+export default FeatureCard
 
-ProjectCard.propTypes = {
+FeatureCard.propTypes = {
   category: PropTypes.array.isRequired,
   thumbnail: PropTypes.object.isRequired,
   title: PropTypes.array.isRequired,

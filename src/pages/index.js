@@ -9,7 +9,7 @@ import dimensions from 'styles/dimensions'
 import Button from 'components/_ui/Button'
 import About from 'components/About'
 import Layout from 'components/Layout'
-import ProjectCard from 'components/ProjectCard'
+import FeatureCard from 'components/FeatureCard'
 
 const Hero = styled('div')`
   padding-top: 2.5em;
@@ -117,7 +117,7 @@ const FeaturesAction = styled(Link)`
   }
 `
 
-const RenderBody = ({home, projects, meta}) => (
+const RenderBody = ({home, features, meta}) => (
   <>
     <Helmet
       title={meta.title}
@@ -164,14 +164,14 @@ const RenderBody = ({home, projects, meta}) => (
       </a>
     </Hero>
     <Section>
-      {projects.map((project, i) => (
-        <ProjectCard
+      {features.map((feature, i) => (
+        <FeatureCard
           key={i}
-          category={project.node.project_category}
-          title={project.node.project_title}
-          description={project.node.project_preview_description}
-          thumbnail={project.node.project_preview_thumbnail}
-          uid={project.node._meta.uid}
+          category={feature.node.feature_category}
+          title={feature.node.feature_title}
+          description={feature.node.feature_preview_description}
+          thumbnail={feature.node.feature_preview_thumbnail}
+          uid={feature.node._meta.uid}
         />
       ))}
       <FeaturesAction to={'/features'}>
@@ -188,21 +188,21 @@ const RenderBody = ({home, projects, meta}) => (
 export default ({data}) => {
   //Required check for no data being returned
   const doc = data.prismic.allHomepages.edges.slice(0, 1).pop()
-  const projects = data.prismic.allProjects.edges
+  const features = data.prismic.allFeatures.edges
   const meta = data.site.siteMetadata
 
-  if (!doc || !projects) return null
+  if (!doc || !features) return null
 
   return (
     <Layout>
-      <RenderBody home={doc.node} projects={projects} meta={meta} />
+      <RenderBody home={doc.node} features={features} meta={meta} />
     </Layout>
   )
 }
 
 RenderBody.propTypes = {
   home: PropTypes.object.isRequired,
-  projects: PropTypes.array.isRequired,
+  features: PropTypes.array.isRequired,
   meta: PropTypes.object.isRequired,
 }
 
@@ -229,14 +229,14 @@ export const query = graphql`
           }
         }
       }
-      allProjects {
+      allFeatures {
         edges {
           node {
-            project_title
-            project_preview_description
-            project_preview_thumbnail
-            project_category
-            project_post_date
+            feature_title
+            feature_preview_description
+            feature_preview_thumbnail
+            feature_category
+            feature_post_date
             _meta {
               uid
             }
