@@ -1,5 +1,5 @@
 import React from 'react'
-import Moment from 'react-moment'
+import {format, parseISO} from 'date-fns'
 import {Link} from 'gatsby'
 import {RichText} from 'prismic-reactjs'
 import styled from '@emotion/styled'
@@ -95,9 +95,7 @@ const PostCard = ({author, category, date, title, description, uid}) => (
     </PostCardAction>
     <PostMetas>
       <PostAuthor>{author}</PostAuthor>
-      <PostDate>
-        <Moment format="MMMM D, YYYY">{date}</Moment>
-      </PostDate>
+      <PostDate>{format(parseISO(date), 'MMMM d, yyyy')}</PostDate>
     </PostMetas>
   </PostCardContainer>
 )
