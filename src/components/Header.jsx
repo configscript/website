@@ -79,8 +79,8 @@ const Header = () => (
         <Logo />
       </Link>
       <HeaderLinks>
-        <Link activeClassName="Link--is-active" to="/work">
-          Work
+        <Link activeClassName="Link--is-active" to="/features">
+          Features
         </Link>
         <Link activeClassName="Link--is-active" to="/blog">
           Blog

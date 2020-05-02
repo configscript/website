@@ -43,7 +43,7 @@ const ProjectBody = styled('div')`
   }
 `
 
-const WorkLink = styled(Link)`
+const FeaturesLink = styled(Link)`
   margin-top: 3em;
   display: block;
   text-align: center;
@@ -99,9 +99,9 @@ const Project = ({project, meta}) => {
         )}
         <ProjectBody>
           {RichText.render(project.project_description)}
-          <WorkLink to={'/work'}>
-            <Button className="Button--secondary">See other work</Button>
-          </WorkLink>
+          <FeaturesLink to={'/features'}>
+            <Button className="Button--secondary">See other features</Button>
+          </FeaturesLink>
         </ProjectBody>
       </Layout>
     </>

@@ -87,7 +87,7 @@ const Section = styled('div')`
   }
 `
 
-const WorkAction = styled(Link)`
+const FeaturesAction = styled(Link)`
   font-weight: 600;
   text-decoration: none;
   color: currentColor;
@@ -174,9 +174,9 @@ const RenderBody = ({home, projects, meta}) => (
           uid={project.node._meta.uid}
         />
       ))}
-      <WorkAction to={'/work'}>
-        See more work <span>&#8594;</span>
-      </WorkAction>
+      <FeaturesAction to={'/features'}>
+        See more features <span>&#8594;</span>
+      </FeaturesAction>
     </Section>
     <Section>
       {RichText.render(home.about_title)}
