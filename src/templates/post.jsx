@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {Helmet} from 'react-helmet'
-import Moment from 'react-moment'
 import {graphql} from 'gatsby'
 import {RichText} from 'prismic-reactjs'
 import styled from '@emotion/styled'
 import colors from 'styles/colors'
 import Layout from 'components/Layout'
+import {format, parseISO} from 'date-fns'
 
 const PostHeroContainer = styled('div')`
   max-height: 500px;
@@ -138,9 +138,7 @@ const Post = ({post, meta}) => {
         <PostTitle>{RichText.render(post.post_title)}</PostTitle>
         <PostMetas>
           <PostAuthor>{post.post_author}</PostAuthor>
-          <PostDate>
-            <Moment format="MMMM D, YYYY">{post.post_date}</Moment>
-          </PostDate>
+          <PostDate>{format(parseISO(post.post_date), 'MMMM d, yyyy')}</PostDate>
         </PostMetas>
         {post.post_hero_image && (
           <PostHeroContainer>
