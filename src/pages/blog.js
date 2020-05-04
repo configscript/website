@@ -30,8 +30,8 @@ const BlogGrid = styled('div')`
 const Blog = ({posts, meta}) => (
   <>
     <Helmet
-      title={`Blog | ConfigScript`}
-      titleTemplate={`%s | Blog | ConfigScript`}
+      title={`Blog | InfraScript`}
+      titleTemplate={`%s | Blog | InfraScript`}
       meta={[
         {
           name: `description`,
@@ -39,7 +39,7 @@ const Blog = ({posts, meta}) => (
         },
         {
           property: `og:title`,
-          content: `Blog | ConfigScript`,
+          content: `Blog | InfraScript`,
         },
         {
           property: `og:description`,

@@ -13,8 +13,8 @@ const FeaturesTitle = styled('h1')`
 const Features = ({features, meta}) => (
   <>
     <Helmet
-      title={`Features | ConfigScript`}
-      titleTemplate={`%s | Features | ConfigScript`}
+      title={`Features | InfraScript`}
+      titleTemplate={`%s | Features | InfraScript`}
       meta={[
         {
           name: `description`,
@@ -22,7 +22,7 @@ const Features = ({features, meta}) => (
         },
         {
           property: `og:title`,
-          content: `Features | ConfigScript`,
+          content: `Features | InfraScript`,
         },
         {
           property: `og:description`,

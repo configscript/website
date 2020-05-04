@@ -96,7 +96,7 @@ const Post = ({post, meta}) => {
   return (
     <>
       <Helmet
-        title={`${post.post_title[0].text} | ConfigScript`}
+        title={`${post.post_title[0].text} | InfraScript`}
         titleTemplate={`%s | ${meta.title}`}
         meta={[
           {
@@ -105,7 +105,7 @@ const Post = ({post, meta}) => {
           },
           {
             property: `og:title`,
-            content: `${post.post_title[0].text} | ConfigScript`,
+            content: `${post.post_title[0].text} | InfraScript`,
           },
           {
             property: `og:description`,

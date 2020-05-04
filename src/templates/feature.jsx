@@ -53,7 +53,7 @@ const Feature = ({feature, meta}) => {
   return (
     <>
       <Helmet
-        title={`${feature.feature_title[0].text} | ConfigScript`}
+        title={`${feature.feature_title[0].text} | InfraScript`}
         titleTemplate={`%s | ${meta.title}`}
         meta={[
           {
@@ -62,7 +62,7 @@ const Feature = ({feature, meta}) => {
           },
           {
             property: `og:title`,
-            content: `${feature.feature_title[0].text} | ConfigScript`,
+            content: `${feature.feature_title[0].text} | InfraScript`,
           },
           {
             property: `og:description`,

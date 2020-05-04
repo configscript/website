@@ -85,7 +85,7 @@ const Header = () => (
         <Link activeClassName="Link--is-active" to="/blog">
           Blog
         </Link>
-        <a activeClassName="Link--is-active" href="https://github.com/configscript/configscript">
+        <a activeClassName="Link--is-active" href="https://github.com/infrascript/infrascript">
           GitHub
         </a>
       </HeaderLinks>

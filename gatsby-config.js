@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `ConfigScript | Infrastructure Configuration Language`,
+    title: `InfraScript | Infrastructure Configuration Language`,
     description: `A starter powered by Gatsby and Prismic to showcase portfolios and blogs.`,
     author: `Jacob Gillespie`,
   },
@@ -33,8 +33,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `configscript`,
-        short_name: `configscript`,
+        name: `infrascript`,
+        short_name: `infrascript`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
